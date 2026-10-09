@@ -781,7 +781,7 @@ function rowHtml(s, folderName, hit) {
   const a = current(); const cx = isCodex(s); const oc = isOpenClaw(s);
   const ok = oc ? true : cx ? codexReady() : canLaunch(a);
   const why = oc ? '' : cx ? (S.codex && S.codex.installed === false ? 'Install Codex first (Setup)' : 'Sign in to Codex first') : !a.signedIn ? `Sign in to ${a.name} first` : !a.lock.ok ? (a.lockMessage || 'Not on its locked account') : '';
-  const sub = s.lastPrompt ? `You last asked: ${s.lastPrompt}` : (s.title !== s.firstPrompt ? `Started with: ${s.firstPrompt}` : '');
+  const sub = s.lastPrompt ? `You last asked: ${s.lastPrompt}` : (s.firstPrompt && s.title !== s.firstPrompt ? `Started with: ${s.firstPrompt}` : '');
   const live = liveOf(s.id);
   const run = !live && isRunning(s.id);
   const flags = (isFav(s.id) ? '<span class="r-fav" title="Pinned to the sidebar">★</span>' : '') + (oc ? `<span class="tag openclaw">✨ ${esc(ocAgent(s))}</span>` : '') + (cx ? '<span class="tag codex">Codex</span>' : '') + (live ? `<span class="tag line">In the window${!cx && live.accountId !== a.id ? ` as ${esc(live.accountName)}` : ''}</span>`

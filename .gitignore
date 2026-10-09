@@ -29,3 +29,6 @@ attachments/
 # Xcode
 mobile/ios/**/xcuserdata/
 *.xcuserstate
+
+# OpenClaw integration: per-session title/prompts cache (written by the server)
+openclaw-titles.json
